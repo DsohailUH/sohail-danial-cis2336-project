@@ -22,3 +22,9 @@ console.log("Gallery JS ready");
 
 console.log("Events JS ready");
 
+document.querySelectorAll('.question').forEach(q => {
+    q.addEventListener('click', () => {
+        q.nextElementSibling.classList.toggle('show');
+    });
+});
+
