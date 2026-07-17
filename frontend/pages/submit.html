@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Submission – ArtConnect</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="submit.html">Artist Submission</a></li>
+            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="references.html">References</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Artist Submission Form</h1>
+        <p>Submit your artwork to be featured in our gallery.</p>
+    </header>
+
+    <section id="submission-form-section">
+        <h2>Submit Your Artwork</h2>
+
+        <form id="artist-form">
+
+            <label for="artist-name">Artist Name:</label>
+            <input type="text" id="artist-name" name="artist-name" required>
+
+            <label for="art-title">Artwork Title:</label>
+            <input type="text" id="art-title" name="art-title" required>
+
+            <label for="category">Category:</label>
+            <select id="category" name="category" required>
+                <option value="">Select a category</option>
+                <option value="Painting">Painting</option>
+                <option value="Digital">Digital</option>
+                <option value="Abstract">Abstract</option>
+                <option value="Photography">Photography</option>
+            </select>
+
+            <label for="price">Price (optional):</label>
+            <input type="text" id="price" name="price">
+
+            <label for="image-upload">Upload Image:</label>
+            <input type="file" id="image-upload" name="image-upload" accept="image/*">
+
+            <button type="submit">Submit Artwork</button>
+        </form>
+
+        <p id="form-message"></p>
+    </section>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>
