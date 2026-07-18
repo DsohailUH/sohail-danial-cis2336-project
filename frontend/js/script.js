@@ -111,3 +111,18 @@ if (searchBar) {
         });
     });
 }
+
+// Events Page Expand/Collapse
+const eventButtons = document.querySelectorAll('.event-toggle');
+
+eventButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const details = btn.nextElementSibling;
+        details.classList.toggle('show');
+
+        btn.textContent = details.classList.contains('show')
+            ? "Hide Details"
+            : "View Details";
+    });
+});
+
