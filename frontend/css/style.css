@@ -152,12 +152,19 @@ footer {
 }
 
 #artist-form input,
-#artist-form select {
+#artist-form select,
+#artist-form textarea {
     padding: 10px;
     margin-top: 5px;
     border-radius: 6px;
     border: 1px solid #ccc;
 }
+
+#artist-form textarea {
+    height: 100px;
+    resize: vertical;
+}
+
 
 #artist-form button {
     margin-top: 20px;
