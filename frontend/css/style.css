@@ -239,3 +239,26 @@ img.featured-img {
 .answer.show {
     display: block;
 }
+
+.site-title {
+    font-size: 40px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.site-tagline {
+    font-size: 18px;
+    color: #555;
+    margin-top: 0;
+}
+
+section p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+#featured-video {
+    margin-top: 30px;
+}
+#featured-video {
+    margin-top: 30px;
+}
