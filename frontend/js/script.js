@@ -92,3 +92,22 @@ document.getElementById('artist-form').addEventListener('submit', function(e) {
     document.getElementById('form-message').style.color = "green";
 });
 
+// Gallery Search Function
+const searchBar = document.getElementById('search-bar');
+
+if (searchBar) {
+    searchBar.addEventListener('keyup', function() {
+        let searchText = searchBar.value.toLowerCase();
+        let artworks = document.querySelectorAll('.art-card');
+
+        artworks.forEach(card => {
+            let title = card.querySelector('.art-title').textContent.toLowerCase();
+
+            if (title.includes(searchText)) {
+                card.style.display = "block";
+            } else {
+                card.style.display = "none";
+            }
+        });
+    });
+}
