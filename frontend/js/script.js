@@ -210,3 +210,19 @@ if (eventModal) {
         }
     });
 }
+// FAQ Expand and Collapse
+const faqQuestions = document.querySelectorAll(".question");
+
+if (faqQuestions.length > 0) {
+    faqQuestions.forEach(function(question) {
+        question.addEventListener("click", function() {
+            const answer = question.nextElementSibling;
+
+            if (answer.style.display === "block") {
+                answer.style.display = "none";
+            } else {
+                answer.style.display = "block";
+            }
+        });
+    });
+}
