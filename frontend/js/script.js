@@ -81,24 +81,39 @@ if (artistForm) {
         formMessage.style.color = "green";
     });
 }
-// Gallery Search Function
-const searchBar = document.getElementById('search-bar');
+// Gallery Search and Category Filter
+const searchBar = document.getElementById("search-bar");
+const categoryFilter = document.getElementById("category-filter");
+const artworkCards = document.querySelectorAll(".art-card");
+
+function filterGallery() {
+    const searchText = searchBar ? searchBar.value.toLowerCase() : "";
+    const selectedCategory = categoryFilter ? categoryFilter.value.toLowerCase() : "all";
+
+    artworkCards.forEach(function(card) {
+        const title = card.querySelector(".art-title").textContent.toLowerCase();
+        const category = card.querySelector(".art-category").textContent.toLowerCase();
+
+        const matchesSearch = title.includes(searchText);
+
+        const matchesCategory =
+            selectedCategory === "all" ||
+            category.includes(selectedCategory);
+
+        if (matchesSearch && matchesCategory) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+    });
+}
 
 if (searchBar) {
-    searchBar.addEventListener('keyup', function() {
-        let searchText = searchBar.value.toLowerCase();
-        let artworks = document.querySelectorAll('.art-card');
+    searchBar.addEventListener("input", filterGallery);
+}
 
-        artworks.forEach(card => {
-            let title = card.querySelector('.art-title').textContent.toLowerCase();
-
-            if (title.includes(searchText)) {
-                card.style.display = "block";
-            } else {
-                card.style.display = "none";
-            }
-        });
-    });
+if (categoryFilter) {
+    categoryFilter.addEventListener("change", filterGallery);
 }
 
 // Events Page Expand/Collapse
