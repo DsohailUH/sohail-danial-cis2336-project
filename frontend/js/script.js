@@ -160,17 +160,49 @@ if (artModal) {
         }
     });
 }
-// Events Page Expand/Collapse
-const eventButtons = document.querySelectorAll('.event-toggle');
+// Events Details Modal
+const eventButtons = document.querySelectorAll(".event-toggle");
+const eventModal = document.getElementById("event-modal");
+const modalEventImage = document.getElementById("modal-event-image");
+const modalEventTitle = document.getElementById("modal-event-title");
+const modalEventDate = document.getElementById("modal-event-date");
+const modalEventLocation = document.getElementById("modal-event-location");
+const modalEventDescription = document.getElementById("modal-event-description");
+const closeEventModal = document.getElementById("close-event-modal");
 
-eventButtons.forEach(btn => {
-    btn.addEventListener('click', () => {
-        const details = btn.nextElementSibling;
-        details.classList.toggle('show');
+if (eventButtons.length > 0 && eventModal) {
+    eventButtons.forEach(function(button) {
+        button.addEventListener("click", function() {
+            const card = button.closest(".event-card");
 
-        btn.textContent = details.classList.contains('show')
-            ? "Hide Details"
-            : "View Details";
+            const image = card.querySelector("img");
+            const title = card.querySelector(".event-title");
+            const paragraphs = card.querySelectorAll("p");
+            const description = card.querySelector(".event-details p");
+
+            modalEventImage.src = image.src;
+            modalEventImage.alt = image.alt;
+            modalEventTitle.textContent = title.textContent;
+
+            modalEventDate.textContent = paragraphs[0].textContent;
+            modalEventLocation.textContent = paragraphs[1].textContent;
+            modalEventDescription.textContent = description.textContent;
+
+            eventModal.style.display = "flex";
+        });
     });
-});
+}
 
+if (closeEventModal) {
+    closeEventModal.addEventListener("click", function() {
+        eventModal.style.display = "none";
+    });
+}
+
+if (eventModal) {
+    eventModal.addEventListener("click", function(event) {
+        if (event.target === eventModal) {
+            eventModal.style.display = "none";
+        }
+    });
+}

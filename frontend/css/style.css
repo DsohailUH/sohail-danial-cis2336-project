@@ -322,3 +322,40 @@ section p {
 .art-card {
     cursor: pointer;
 }
+/* Event Details Modal */
+.event-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.75);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.event-modal-content {
+    background-color: white;
+    padding: 25px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    text-align: center;
+    position: relative;
+}
+
+.event-modal-content img {
+    max-width: 100%;
+    max-height: 350px;
+    border-radius: 8px;
+}
+
+#close-event-modal {
+    position: absolute;
+    top: 10px;
+    right: 18px;
+    font-size: 30px;
+    cursor: pointer;
+}
