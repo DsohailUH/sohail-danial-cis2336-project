@@ -18,67 +18,71 @@ if (artistForm) {
         const price = document.getElementById("price").value.trim();
         const image = document.getElementById("image-upload").value;
 
-        // Clear previous message
+        const nameError = document.getElementById("artist-name-error");
+        const emailError = document.getElementById("email-error");
+        const titleError = document.getElementById("art-title-error");
+        const descriptionError = document.getElementById("description-error");
+        const categoryError = document.getElementById("category-error");
+        const priceError = document.getElementById("price-error");
+        const imageError = document.getElementById("image-error");
+
+        // Clear old error messages
+        nameError.textContent = "";
+        emailError.textContent = "";
+        titleError.textContent = "";
+        descriptionError.textContent = "";
+        categoryError.textContent = "";
+        priceError.textContent = "";
+        imageError.textContent = "";
         formMessage.textContent = "";
 
-        // Artist name validation
+        let isValid = true;
+
         if (name === "") {
-            formMessage.textContent = "Please enter your name.";
-            formMessage.style.color = "red";
-            return;
+            nameError.textContent = "Please enter your name.";
+            isValid = false;
         }
 
-        // Email validation
         if (email === "") {
-            formMessage.textContent = "Please enter your email address.";
-            formMessage.style.color = "red";
-            return;
+            emailError.textContent = "Please enter your email address.";
+            isValid = false;
+        } else if (!email.includes("@") || !email.includes(".")) {
+            emailError.textContent = "Please enter a valid email address.";
+            isValid = false;
         }
 
-        if (!email.includes("@") || !email.includes(".")) {
-            formMessage.textContent = "Please enter a valid email address.";
-            formMessage.style.color = "red";
-            return;
-        }
-
-        // Artwork title validation
         if (title === "") {
-            formMessage.textContent = "Please enter an artwork title.";
-            formMessage.style.color = "red";
-            return;
+            titleError.textContent = "Please enter an artwork title.";
+            isValid = false;
         }
 
-        // Description validation
         if (description === "") {
-            formMessage.textContent = "Please enter an artwork description.";
-            formMessage.style.color = "red";
-            return;
+            descriptionError.textContent = "Please enter an artwork description.";
+            isValid = false;
         }
 
-        // Category validation
         if (category === "") {
-            formMessage.textContent = "Please select a category.";
-            formMessage.style.color = "red";
-            return;
+            categoryError.textContent = "Please select a category.";
+            isValid = false;
         }
 
-        // Price validation
-        if (price !== "" && isNaN(price)) {
-            formMessage.textContent = "Price must be a number.";
-            formMessage.style.color = "red";
-            return;
+        if (price !== "" && (isNaN(price) || Number(price) < 0)) {
+            priceError.textContent = "Price must be a valid positive number.";
+            isValid = false;
         }
 
-        // Image validation
         if (image === "") {
-            formMessage.textContent = "Please upload an image of your artwork.";
-            formMessage.style.color = "red";
-            return;
+            imageError.textContent = "Please upload an image of your artwork.";
+            isValid = false;
         }
 
-        // Success message
-        formMessage.textContent = "Artwork submitted successfully!";
-        formMessage.style.color = "green";
+        if (isValid) {
+            formMessage.textContent = "Artwork submitted successfully!";
+            formMessage.style.color = "green";
+        } else {
+            formMessage.textContent = "Please correct the errors above.";
+            formMessage.style.color = "red";
+        }
     });
 }
 // Gallery Search and Category Filter
