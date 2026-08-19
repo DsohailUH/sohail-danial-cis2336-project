@@ -42,7 +42,7 @@ if (artistForm) {
             nameError.textContent = "Please enter your name.";
             isValid = false;
         }
-
+        
         if (email === "") {
             emailError.textContent = "Please enter your email address.";
             isValid = false;
@@ -50,7 +50,7 @@ if (artistForm) {
             emailError.textContent = "Please enter a valid email address.";
             isValid = false;
         }
-
+        
         if (title === "") {
             titleError.textContent = "Please enter an artwork title.";
             isValid = false;
@@ -77,12 +77,12 @@ if (artistForm) {
         }
 
         if (isValid) {
-            formMessage.textContent = "Artwork submitted successfully!";
-            formMessage.style.color = "green";
+            HTMLFormElement.prototype.submit.call(artistForm);
         } else {
             formMessage.textContent = "Please correct the errors above.";
             formMessage.style.color = "red";
         }
+
     });
 }
 // Gallery Search and Category Filter

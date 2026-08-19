@@ -30,14 +30,14 @@
     <section id="submission-form-section">
         <h2>Submit Your Artwork</h2>
 
-        <form id="artist-form">
+        <form id="artist-form" action="/submit-artwork" method="POST">
 
             <label for="artist-name">Artist Name:</label>
             <input type="text" id="artist-name" name="artist-name" required>
             <span class="field-error" id="artist-name-error"></span>     
 
             <label for="email">Email Address:</label>
-            <input type="email" id="email" name="email" required>
+            <input type="text" id="email" name="email" required>
             <span class="field-error" id="email-error"></span>
 
             <label for="art-title">Artwork Title:</label>

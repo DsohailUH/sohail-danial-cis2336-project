@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submission Declined</title>
+</head>
+
+<body>
+
+    <h1>Submission Declined</h1>
+
+    <p id="decline-message">
+        Your submission could not be processed.
+    </p>
+
+    <a href="/pages/submit.html">Return to Submission Form</a>
+
+    <script>
+        const reason = window.location.pathname.split("/").pop();
+        const message = document.getElementById("decline-message");
+
+        if (reason === "missing") {
+            message.textContent = "Please complete all required fields.";
+        } else if (reason === "email") {
+            message.textContent = "Please enter a valid email address.";
+        } else if (reason === "price") {
+            message.textContent = "Please enter a valid positive price.";
+        }
+    </script>
+
+</body>
+</html>
