@@ -218,10 +218,8 @@ if (faqQuestions.length > 0) {
         question.addEventListener("click", function() {
             const answer = question.nextElementSibling;
 
-            if (answer.style.display === "block") {
-                answer.style.display = "none";
-            } else {
-                answer.style.display = "block";
+            if (answer) {
+                answer.classList.toggle("show");
             }
         });
     });
